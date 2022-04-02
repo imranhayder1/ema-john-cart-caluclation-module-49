@@ -1,0 +1,48 @@
+.review-item-container {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+.item-container {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-item-container img {
+    width: 50px;
+    height: 50px;
+}
+
+.item-img {
+    display: flex;
+    align-items: center;
+}
+
+.item-container .review-items p {
+    margin: 0;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+}
+
+.delet-button {
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.315);
+    cursor: pointer;
+}
+
+.delet-icon {
+    width: 25px;
+    height: 25px;
+    color: red;
+}
