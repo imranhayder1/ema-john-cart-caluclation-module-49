@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
@@ -10,8 +10,13 @@ import './Shop.css';
 const Shop = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useCart(products);
+    const [search, setSearch] = useState([]);
 
-
+    const handleSearch = (event) => {
+        const searchText = event.target.value;
+        const match = products.filter(v => v.name.toLowerCase().includes(searchText));
+        setSearch(match)
+    }
     const handleAddToCart = (selectedProduct) => {
 
         let newCart = [];
@@ -31,22 +36,29 @@ const Shop = () => {
     }
 
     return (
-        <div className='shop-container'>
-            <div className="products-container">
-                {
-                    products.map(product => <Product
-                        key={product.id}
-                        product={product}
-                        handleAddToCart={handleAddToCart}
-                    ></Product>)
-                }
+        <div>
+            <div className='input-fild'>
+                <input onChange={handleSearch} type="text" placeholder='Search Products' />
             </div>
-            <div className="cart-container">
-                <Cart cart={cart}>
-                    <Link to="/orders">
-                        <button>Review Orders</button>
-                    </Link>
-                </Cart>
+            <div className='shop-container'>
+
+
+                <div className="products-container">
+                    {
+                        search.map(product => <Product
+                            key={product.id}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
+                        ></Product>)
+                    }
+                </div>
+                <div className="cart-container">
+                    <Cart cart={cart}>
+                        <Link to="/orders">
+                            <button>Review Orders</button>
+                        </Link>
+                    </Cart>
+                </div>
             </div>
         </div>
     );

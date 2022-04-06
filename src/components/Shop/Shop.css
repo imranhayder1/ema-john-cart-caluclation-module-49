@@ -1,18 +1,32 @@
-.shop-container{
+.input-fild {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.input-fild input {
+    padding: 10px;
+    width: 500px;
+}
+
+.shop-container {
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
-.products-container{
+
+.products-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
-    margin: 100px 50px;
+    margin: 10px 50px;
 }
-.cart-container{
+
+.cart-container {
     background-color: rgba(255, 153, 0, 0.3);
 }
+
 @media screen and (max-width:1100px) {
-    .products-container{
+    .products-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
